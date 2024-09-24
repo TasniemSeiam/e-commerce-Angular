@@ -1,0 +1,9 @@
+.navbar-nav{
+    position: absolute;
+    right: 0;
+    text-transform: capitalize;
+}
+.active{
+    color: green !important;
+    font-weight: bold;
+}

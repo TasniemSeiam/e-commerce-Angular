@@ -1,0 +1,50 @@
+<h2>Login</h2>
+<form #loginForm="ngForm" (ngSubmit)="handelSubmit(loginForm)">
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="enter your email"
+      class="form-control"
+      ngModel
+      #email="ngModel"
+      required
+      pattern="[a-z0-9._]+@[a-z]+\.[a-z]{2,4}$"
+    />
+    <div *ngIf="formIsSubmitted && email.invalid" class="text-danger">
+      <small *ngIf="email.errors?.['required']">Email is required</small>
+      <small *ngIf="email.errors?.['pattern']">Invalid email format</small>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="enter your password"
+      class="form-control"
+      ngModel
+      #password="ngModel"
+      required
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    />
+    <div *ngIf="formIsSubmitted && password.invalid" class="text-danger">
+      <small *ngIf="password.errors?.['required']">Password is required.</small>
+      <small *ngIf="password.errors?.['pattern']"
+        >Password must be at least 8 characters long, include uppercase,
+        lowercase, a number, and a special character.</small
+      >
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary my-4 form-control">Login</button>
+</form>
+<h6 class="d-flex">
+  Don't have account?
+  <a class="nav-link ms-2 text-decoration-underline" routerLink="/register"
+    >Register</a
+  >
+</h6>

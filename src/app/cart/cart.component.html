@@ -1,0 +1,43 @@
+@if (cartItems.length !== 0) {
+
+<div *ngFor="let item of cartItems">
+  <div class="card mb-3 h-100">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="item.thumbnail"
+          alt="{{ item.title }}"
+          class="img-fluid rounded-start"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5>{{ item.title }}</h5>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Price: {{ item.price * (item.quantity || 1) | currency }}</p>
+          <div class="d-flex">
+            <button
+              class="btn btn-outline-primary px-2"
+              (click)="decreaseItem(item)"
+            >
+              -
+            </button>
+            <span>{{ item.quantity }}</span>
+            <button
+              class="btn btn-outline-primary px-2"
+              (click)="increaseItem(item)"
+            >
+              +
+            </button>
+            <button class="btn btn-danger" (click)="removeItem(item)">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}@else {
+<h3>Your cart is empty</h3>
+}

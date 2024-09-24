@@ -1,0 +1,26 @@
+.addCart:hover {
+  color: white;
+  border: 1px solid #448544;
+  background-color: #448544;
+}
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-transform: capitalize;
+}
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.para h5{
+    font-size: 17px;
+    width: 61%;
+}
+.para{
+    height: 65px;
+}

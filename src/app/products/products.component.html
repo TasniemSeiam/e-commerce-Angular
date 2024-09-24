@@ -1,0 +1,21 @@
+
+@if (products && isLoading) {
+  
+  <div class="row row-cols-1 row-cols-md-4 g-4 my-5">
+    @for (product of products; track product.id) {
+    <div class="col">
+      <a [routerLink]="['/product', product.id]" class="text-decoration-none">
+        <app-product-card [product]="product"></app-product-card>
+      </a>
+    </div>
+    }@empty {
+    <h4>No Products Found</h4>
+    }
+  </div>
+}@else {
+  <div class="text-center pt-5">
+    <div class="spinner-border text-primary  " style="width: 3rem; height: 3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+}

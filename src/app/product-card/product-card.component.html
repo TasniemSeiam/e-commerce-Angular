@@ -1,0 +1,28 @@
+<div class="card h-100">
+  <div class="position-relative" >
+    @if (product.stock > 0) {
+    <span class="badge bg-success ">in stock</span>
+    }@else {
+    <span class="badge bg-danger">out of stock</span>
+    }
+    <img
+      [src]="product.thumbnail"
+      class="card-img-top bg-light"
+      [alt]="product.title"
+    />
+  </div>
+  <div class="card-body">
+    <div class="d-flex justify-content-between para">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <h6 class="card-title text-secondary ">{{ product.price }} EGP</h6>
+    </div>
+    <p class="card-text description " [title]="product.description" >
+      {{ product.description }}
+    </p>
+    <ngb-rating class="text-warning fs-5" [rate]="product.rating" />
+    <br />
+    <button class="btn btn-secondary my-2 addCart"  (click)="addToCart()">
+      Add to cart
+    </button>
+  </div>
+</div>
